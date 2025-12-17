@@ -1,6 +1,3 @@
-import { Counter } from '@/components/Counter'
-import Products from '@/components/products'
-import Todolist from '@/components/Todolist'
 import { createFileRoute } from '@tanstack/react-router'
 
 
@@ -9,9 +6,7 @@ export const Route = createFileRoute('/')({ component: App })
 function App() {
 return(
   <div>
-    <Counter></Counter>
-    <Todolist></Todolist>
-    <Products></Products>
+     <b><h1 className='text-2xl text-blue-500 text-center m-2 p-2'>WELCOME TO HOME PAGE...</h1></b>
   </div>
 )
 }

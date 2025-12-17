@@ -5,6 +5,11 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 import Header from '../components/Header'
 
 import appCss from '../styles.css?url'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
+interface MyRouterContext {
+  queryClient: QueryClient
+}
 
 export const Route = createRootRoute({
   head: () => ({
@@ -32,7 +37,9 @@ export const Route = createRootRoute({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const { queryClient } = Route.useRouteContext()
   return (
+    <QueryClientProvider client={queryClient}>
     <html lang="en">
       <head>
         <HeadContent />
@@ -40,19 +47,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <body>
         <Header />
         {children}
-        <TanStackDevtools
-          config={{
-            position: 'bottom-right',
-          }}
-          plugins={[
-            {
-              name: 'Tanstack Router',
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
-        <Scripts />
+        <Scripts></Scripts>
       </body>
     </html>
+    </QueryClientProvider>
   )
 }
