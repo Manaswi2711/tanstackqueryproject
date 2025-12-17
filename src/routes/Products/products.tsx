@@ -12,10 +12,10 @@ function Products() {
        <ul className='grid grid-cols-5 gap-6 border border-2 p-2 m-3'>
         {products.map((prod)=>(
             <li className='border border-2 border-gray-400 rounded-xl p-2 m-3 text-center bg-gray-200' key={prod.id}>
-                   <img className="bg-gray-400 border rounded w-50 text-center     mx-auto" src={prod.thumbnail}/>
+                   <img className="bg-gray-400 border border-gray-500 rounded w-50 text-center     mx-auto" src={prod.thumbnail}/>
                     <b>{prod.title}</b>  
-                    <p>price:${prod.price}</p>
-                   <p>rating:{prod.rating}</p>
+                    <p><b>price:</b>$<span className='text-red-600'>{prod.price}</span></p>
+                   <p><b>rating:</b><span className='text-green-500 '>{prod.rating}</span></p>
             </li>
              
           )
