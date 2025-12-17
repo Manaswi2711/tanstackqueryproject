@@ -1,15 +1,15 @@
 import React from 'react'
 import { useEffect } from 'react'
 function Products() {
-  var [products,setProducts] =React.useState([])
+  var [products,setProducts] =React.useState([]);
   useEffect(()=>{
     fetch("https://dummyjson.com/products")
     .then((res)=>res.json())
     .then((data)=>{
       console.log(data)
       setProducts(data.products)
-    })
-  },[])
+    });
+  },[]);
   return (
     <div >
       <b><h1 className='text-3xl text-center'>PRODUCTS</h1></b> 
@@ -28,5 +28,6 @@ function Products() {
     </div>
   )
 }
+
 
 export default Products
